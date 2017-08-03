@@ -129,6 +129,11 @@
 
 - (void)handleSingleTapRecognizer:(UITapGestureRecognizer *)recognizer {
     [self adjustAnchorPointForGestureRecognizer:recognizer];
+    
+    CGPoint locationInPurpleView = [recognizer locationInView:recognizer.view];
+    CGPoint locationInSelfView = [recognizer locationInView:self.view];
+    
+    NSLog(@"%@ %@", NSStringFromCGPoint(locationInPurpleView), NSStringFromCGPoint(locationInSelfView));
 
     [recognizer view].center = [recognizer locationInView:self.view];
 }
